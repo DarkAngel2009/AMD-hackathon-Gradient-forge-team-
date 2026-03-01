@@ -146,9 +146,3 @@ Each architecture is evaluated by the LLM across **8 dimensions**:
 ## 👥 Team Gradient Forge
 
 Built for the **AMD Slingshot Hackathon 2026**.
-
----
-
-## 📄 License
-
-MIT License — feel free to use and modify.
