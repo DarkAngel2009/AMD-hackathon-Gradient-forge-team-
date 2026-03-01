@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Multiverse Engine</title>
+    <meta name="description" content="Generate, simulate, compare, and scaffold system architectures intelligently.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ───── Top Navigation ───── -->
+    <nav class="topnav">
+        <div class="topnav-logo">AME</div>
+        <ul class="topnav-links">
+            <li><a href="#input-section" class="active">Configure</a></li>
+            <li><a href="#arch-section">Architectures</a></li>
+            <li><a href="#comparison-section">Compare</a></li>
+            <li><a href="#scaffold-section">Scaffold</a></li>
+            <li><a href="#downloads-section">Artifacts</a></li>
+        </ul>
+    </nav>
+
+    <!-- ───── Hero / Header ───── -->
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <h1>Architectural<br>Multiverse<br>Engine</h1>
+        <p class="subtitle">Generate · Simulate · Compare · Scaffold</p>
+    </header>
+
+    <!-- ───── Marquee Banner ───── -->
+    <div class="marquee">
+        <div class="marquee-inner">
+            <span class="accent-text">AI-DRIVEN</span>
+            <span>ARCHITECTURE GENERATION</span>
+            <span class="accent-text">SIMULATION ENGINE</span>
+            <span>TRADE-OFF ANALYSIS</span>
+            <span class="accent-text">SCAFFOLD BUILDER</span>
+            <span>COMPLIANCE DETECTION</span>
+            <span class="accent-text">SRS GENERATION</span>
+            <span>MERMAID DIAGRAMS</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="accent-text">AI-DRIVEN</span>
+            <span>ARCHITECTURE GENERATION</span>
+            <span class="accent-text">SIMULATION ENGINE</span>
+            <span>TRADE-OFF ANALYSIS</span>
+            <span class="accent-text">SCAFFOLD BUILDER</span>
+            <span>COMPLIANCE DETECTION</span>
+            <span class="accent-text">SRS GENERATION</span>
+            <span>MERMAID DIAGRAMS</span>
+        </div>
+    </div>
+
+    <!-- ───── Model Configuration Panel ───── -->
+    <section id="model-config-section" class="section reveal">
+        <span class="section-label">Configuration</span>
+        <h2>Model Selection</h2>
+        <p class="config-hint">Select LLM models for each module — defaults used if unchanged</p>
+        <div class="model-config-grid">
+            <div class="config-group">
+                <label for="model-strategic">Strategic Analysis</label>
+                <select id="model-strategic" class="model-select">
+                    <option value="llama-3.3-70b-versatile" selected>Llama 3.3 70B</option>
+                    <option value="llama3-8b-8192">Llama 3 8B (fast)</option>
+                    <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                    <option value="gemma2-9b-it">Gemma 2 9B</option>
+                </select>
+            </div>
+            <div class="config-group">
+                <label for="model-scaffold">Scaffold Generation</label>
+                <select id="model-scaffold" class="model-select">
+                    <option value="llama-3.3-70b-versatile" selected>Llama 3.3 70B</option>
+                    <option value="llama3-8b-8192">Llama 3 8B (fast)</option>
+                    <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                    <option value="gemma2-9b-it">Gemma 2 9B</option>
+                </select>
+            </div>
+            <div class="config-group">
+                <label for="model-compliance">Compliance Analysis</label>
+                <select id="model-compliance" class="model-select">
+                    <option value="llama-3.3-70b-versatile" selected>Llama 3.3 70B</option>
+                    <option value="llama3-8b-8192">Llama 3 8B (fast)</option>
+                    <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                    <option value="gemma2-9b-it">Gemma 2 9B</option>
+                </select>
+            </div>
+        </div>
+        <button id="applyModelsBtn" class="btn-secondary">Apply Configuration</button>
+    </section>
+
+    <!-- ───── Input Section ───── -->
+    <section id="input-section" class="section reveal">
+        <span class="section-label">Specification</span>
+        <h2>System Definition</h2>
+        <p class="section-desc">Describe your system and constraints. The engine will generate, simulate, and compare
+            four distinct architectural strategies.</p>
+        <form id="input-form">
+            <div class="form-group full-width">
+                <label for="sysDesc">System Description</label>
+                <textarea id="sysDesc" rows="3"
+                    placeholder='e.g. "Scalable real-time chat backend for 100k concurrent users"' required></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="expectedUsers">Expected Users</label>
+                    <input id="expectedUsers" type="number" min="100" value="50000" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Sensitivity</label>
+                    <select id="budget">
+                        <option value="low">Low (generous)</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High (tight)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeToMarket">Time to Market</label>
+                    <select id="timeToMarket">
+                        <option value="fast">Fast</option>
+                        <option value="balanced" selected>Balanced</option>
+                        <option value="robust">Robust</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Architectural Priorities -->
+            <div class="priority-section">
+                <h3 class="priority-heading">Architectural Priorities</h3>
+                <div class="slider-grid">
+                    <div class="slider-group">
+                        <label for="costWeight">Cost Importance</label>
+                        <div class="slider-row">
+                            <input id="costWeight" type="range" min="0" max="5" value="3" class="priority-slider">
+                            <span class="slider-value" id="costWeightVal">3</span>
+                        </div>
+                    </div>
+                    <div class="slider-group">
+                        <label for="speedWeight">Speed Importance</label>
+                        <div class="slider-row">
+                            <input id="speedWeight" type="range" min="0" max="5" value="3" class="priority-slider">
+                            <span class="slider-value" id="speedWeightVal">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="generateBtn" class="btn-primary">
+                <span class="btn-text">Generate Architectures</span>
+                <span class="btn-loader hidden"></span>
+            </button>
+        </form>
+    </section>
+
+    <!-- ───── Compliance & Regulatory Impact ───── -->
+    <section id="compliance-section" class="section hidden">
+        <span class="section-label">Compliance</span>
+        <h2>Regulatory Impact Analysis</h2>
+        <div class="compliance-layout">
+            <div class="compliance-requirements">
+                <div class="compliance-label">Detected Requirements</div>
+                <div id="compliance-badges" class="compliance-badge-row"></div>
+            </div>
+            <div class="compliance-implications">
+                <div class="compliance-label">Architectural Implications</div>
+                <div id="compliance-implications-text" class="compliance-text"></div>
+            </div>
+            <div class="compliance-risks">
+                <div class="compliance-label">Risk Flags</div>
+                <div id="compliance-risks-list" class="compliance-risk-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───── Architecture Cards ───── -->
+    <section id="arch-section" class="section hidden">
+        <span class="section-label">Results</span>
+        <h2>Generated Architectures</h2>
+        <div id="arch-cards" class="card-grid"></div>
+    </section>
+
+    <!-- ───── Architecture Diagram (Mermaid) ───── -->
+    <section id="diagram-section" class="section hidden">
+        <span class="section-label">Visualization</span>
+        <h2>Architecture Diagram</h2>
+        <p class="diagram-hint">Select an architecture to visualize its component diagram</p>
+        <div id="diagram-buttons" class="scaffold-btn-row"></div>
+        <div id="diagram-container" class="diagram-render-area hidden">
+            <div id="diagram-focused-label" class="focused-label"></div>
+            <div id="mermaid-output" class="mermaid-container"></div>
+            <button id="downloadDiagramBtn" class="btn-download hidden">
+                <span>↓</span> Download PNG
+            </button>
+        </div>
+    </section>
+
+    <!-- ───── Comparison Dashboard ───── -->
+    <section id="comparison-section" class="section hidden">
+        <span class="section-label">Analysis</span>
+        <h2>Comparison Dashboard</h2>
+        <div class="comparison-layout">
+            <div class="table-wrapper">
+                <table id="comparison-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="chart-wrapper">
+                <div class="radar-controls">
+                    <div class="radar-toggles" id="radar-toggles"></div>
+                    <div id="focused-view-badge" class="focused-badge hidden">
+                        <span class="focused-dot"></span> Focused View
+                    </div>
+                </div>
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───── Constraint Tension Warning ───── -->
+    <div id="tension-warning" class="tension-banner hidden"></div>
+
+    <!-- ───── Ranking & Reasoning ───── -->
+    <section id="ranking-section" class="section hidden">
+        <span class="section-label">Ranking</span>
+        <h2>Trade-off Analysis</h2>
+        <div id="recommendation" class="recommendation"></div>
+        <div id="trade-offs" class="trade-offs"></div>
+    </section>
+
+    <!-- ───── AI Strategic Analysis ───── -->
+    <section id="llm-section" class="section hidden">
+        <span class="section-label">Intelligence</span>
+        <h2>AI Strategic Analysis</h2>
+        <div class="llm-cards">
+            <div class="llm-card" id="llm-summary">
+                <div class="llm-card-header">Executive Summary</div>
+                <div class="llm-card-body"></div>
+            </div>
+            <div class="llm-card" id="llm-risk">
+                <div class="llm-card-header">Risk Analysis</div>
+                <div class="llm-card-body"></div>
+            </div>
+            <div class="llm-card" id="llm-advice">
+                <div class="llm-card-header">Strategic Advice</div>
+                <div class="llm-card-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───── Scaffold Generation ───── -->
+    <section id="scaffold-section" class="section hidden">
+        <span class="section-label">Generation</span>
+        <h2>Starter Scaffold</h2>
+        <div id="scaffold-cta" class="scaffold-cta">
+            <p class="scaffold-cta-text">Want a working prototype for your chosen architecture?</p>
+            <p class="scaffold-cta-sub">We'll generate production-ready starter files, Dockerfiles, configs, and more.
+            </p>
+            <button id="getCodeBtn" class="btn-primary btn-lg">
+                <span class="btn-text">⟨/⟩ &nbsp; Get Code</span>
+                <span class="btn-loader hidden"></span>
+            </button>
+        </div>
+        <div id="scaffold-output" class="hidden">
+            <div id="scaffold-files"></div>
+        </div>
+    </section>
+
+    <!-- ───── SRS & Downloads ───── -->
+    <section id="downloads-section" class="section hidden">
+        <span class="section-label">Documentation</span>
+        <h2>Engineering Artifacts</h2>
+        <div class="downloads-grid">
+            <div class="download-card">
+                <div class="download-icon">⎔</div>
+                <h3>Software Requirements Specification</h3>
+                <p>Generate a complete SRS document based on the analysis.</p>
+                <button id="generateSrsBtn" class="btn-primary btn-sm">
+                    <span class="btn-text">Generate SRS</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+                <button id="downloadSrsBtn" class="btn-download hidden" style="margin-top:16px">
+                    <span>↓</span> Download .md
+                </button>
+            </div>
+        </div>
+        <div id="srs-container" class="srs-rendered hidden"></div>
+    </section>
+
+    <footer>
+        <p>Architectural Multiverse Engine &mdash; AMD Slingshot Hackathon 2026</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Intersection Observer for scroll reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Active nav link highlighting
+        const navLinks = document.querySelectorAll('.topnav-links a');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
+    </script>
+</body>
+
+</html>
