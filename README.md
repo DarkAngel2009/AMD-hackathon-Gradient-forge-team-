@@ -20,12 +20,6 @@ Describe your system and constraints → get **4 production-grade architecture p
 
 ---
 
-## 🖥️ Screenshots
-
-The UI features a premium dark theme inspired by [lightweight.info](https://lightweight.info/en) — editorial, minimal, powerful.
-
----
-
 ## 🧪 Tech Stack
 
 | Layer | Technology |
